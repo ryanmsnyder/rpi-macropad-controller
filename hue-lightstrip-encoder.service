@@ -1,0 +1,19 @@
+[Unit]
+Description=BNK8 Encoder - Hue Desk Lightstrip Brightness
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /home/ryan/hue_lightstrip_encoder.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Environment variables
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
